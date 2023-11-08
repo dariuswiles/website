@@ -305,10 +305,10 @@ void setProjectionMatrix(const float &angleOfView, const float &near, const floa
 void multPointMatrix(const Vec3f &in, Vec3f &out, const Matrix44f &M) 
 { 
     //out = in * M;
-    out.x   = in.x * M[0][0] + in.y * M[1][0] + in.z * M[2][0] + /* in.z = 1 */ M[3][0]; 
-    out.y   = in.x * M[0][1] + in.y * M[1][1] + in.z * M[2][1] + /* in.z = 1 */ M[3][1]; 
-    out.z   = in.x * M[0][2] + in.y * M[1][2] + in.z * M[2][2] + /* in.z = 1 */ M[3][2]; 
-    float w = in.x * M[0][3] + in.y * M[1][3] + in.z * M[2][3] + /* in.z = 1 */ M[3][3]; 
+    out.x   = in.x * M[0][0] + in.y * M[1][0] + in.z * M[2][0] + /* in.w = 1 */ M[3][0]; 
+    out.y   = in.x * M[0][1] + in.y * M[1][1] + in.z * M[2][1] + /* in.w = 1 */ M[3][1]; 
+    out.z   = in.x * M[0][2] + in.y * M[1][2] + in.z * M[2][2] + /* in.w = 1 */ M[3][2]; 
+    float w = in.x * M[0][3] + in.y * M[1][3] + in.z * M[2][3] + /* in.w = 1 */ M[3][3]; 
  
     // normalize if w is different than 1 (convert from homogeneous to Cartesian coordinates)
     if (w != 1) { 
